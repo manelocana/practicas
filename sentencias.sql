@@ -1,3 +1,6 @@
+-- Llamamos sentencias al CRUD en mysql
+
+
 -- crear base de datos
 
 CREATE DATABASE codigofacilito;
@@ -39,10 +42,17 @@ SELECT * FROM users\G;  -- para verlo en formato cartas
 UPDATE users SET bio='esta es la actualizacion de la bio mediante SET', age='15' WHERE id=1;
 
 
+-- Borrar columnas, ¡¡¡ATENCION!!! SI NO PONEMOS WHERE SE BORRA TODA LA TABLA, TODA.
+
+DELETE FROM users WHERE id=1;
+DELETE FROM users;  -- asi se va todo a la mierda
+TRUNCATE FROM users;    -- tambien se va todo a la mierda, incluido el autoincrement de id
+    -- DELETE = elimina registros de la tabla -> se pueden usar TRIGGERS
+    -- TRUNCATE = elimina registros y además restablece la meta-informacion de la tabla (le hace un reset a id por ejemplo)
 
 
 
--- EJERCICIOS:
+-- EJERCICIOS GET:
 
 -- Obtener el usuario con el id numero 2:
 SELECT * FROM users WHERE id=2;
